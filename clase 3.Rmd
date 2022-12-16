@@ -1,0 +1,39 @@
+---
+title: "Clase 3 a"
+author: "Reportes con R 3"
+date: "2022-12-16"
+output: 
+  html_document:
+    toc: yes #indice
+    toc_float:
+      collapse: yes
+    number_sections: yes
+    code_folding: hide
+    code_download: yes
+    theme: yeti
+---
+
+```{r NombreDelChunk, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# INTRODUCCIÓN
+La regresión logística es unos de los métodos más comúnes para predecir el valor de una variable de respuesta $y$ de tipo categórica en funcion de variables predictoras. Algunas de estas variables $y$ pueden ser :
+* $y = 0$ o $y=15$
+* $y =$ pago su credito o $y=$ no pago su credito
+
+El objetivo de este tipo de metodos de modelos es el estimar la probabilidad del evento de interes.
+$$P[y=1 | x=x]$$
+Usaremos la funcion logit para estas cuentas:
+$$P[Y=1|X=x] = \frac{exp(\beta^{T}x)}{1+ exp(\beta^{T}x)}$$
+
+# EJEMPLO EN R
+_(para agregar un chunk ctrl+alt+i)_
+```{r CargaLibrerias,eval = TRUE,}
+library(ggplot2)
+library(corrplot)
+library(car)
+library(knitr)
+library(PerformanceAnalytics)
+library(cowplot)
+```
