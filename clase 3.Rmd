@@ -10,11 +10,11 @@ output:
     number_sections: yes
     code_folding: hide
     code_download: yes
-    theme: yeti
+    theme: spacelab
 ---
 
 ```{r NombreDelChunk, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning= FALSE, message=FALSE)
 ```
 
 # INTRODUCCIÓN
@@ -29,7 +29,7 @@ $$P[Y=1|X=x] = \frac{exp(\beta^{T}x)}{1+ exp(\beta^{T}x)}$$
 
 # EJEMPLO EN R
 _(para agregar un chunk ctrl+alt+i)_
-```{r CargaLibrerias,eval = TRUE,}
+```{r CargaLibrerias,eval = TRUE, message=FALSE}
 library(ggplot2)
 library(corrplot)
 library(car)
@@ -37,3 +37,29 @@ library(knitr)
 library(PerformanceAnalytics)
 library(cowplot)
 ```
+
+```{r CargaDatos, include=FALSE}
+titanic <- read.csv("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv")
+colnames(titanic)
+```
+
+## Algunos gráficos
+consideremos:
+
+* La variable dependiente Survived
+
+* La variables Pclass
+
+* La variable Age
+
+```{r Grafico_1}
+ggplot(data=titanic,
+       mapping=aes(Pclass,fill=Pclass))+
+  geom_bar(position="dodge")+
+  scale_fill_manual(values=c("red","blue","green"))
+```
+
+```{r}
+
+```
+
